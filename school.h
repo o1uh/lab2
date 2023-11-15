@@ -178,8 +178,7 @@ int create_class(school* scl) {
             cl();
             return 0;
         }
-        char ;
-        int  ;
+        
 
         do {
             printf("Введите номер класса (1-11): ");
@@ -247,6 +246,7 @@ int create_class(school* scl) {
         break;
     }
     case 2: {
+        c = 0;
         if ((*scl).n_cl < 1) {
             printf("База классов пуста.\n");
             cl();
@@ -303,9 +303,13 @@ int create_class(school* scl) {
 
                 (*scl).cls[i].count++;
                 red_avg(scl, i, (*scl).cls[i].count-1);
-                cl();
+                c = 1;
+                
             }
         }
+        if (c == 0)
+            printf("Такого класса нет");
+        cl();
         break;
         }
     default:
@@ -418,8 +422,9 @@ void del(school* scl) {
     } while (p > 2 || p < 1 || v < 1);
     
     switch (p) {
-    p = 0;
+    
     case 1: {
+        p = 0;
         do {
             printf("Введите номер класса (1-11): ");
             v = scanf("%d", &num);
@@ -450,6 +455,7 @@ void del(school* scl) {
         break;
     }
     case 2: {
+        p = 0;
         do {
             printf("Введите номер класса (1-11): ");
             v = scanf("%d", &num);
